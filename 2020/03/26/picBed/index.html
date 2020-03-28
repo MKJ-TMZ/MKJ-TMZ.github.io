@@ -65,9 +65,7 @@
         </div>
         <div class="content markdown">
             <p>由于本人的博客最初是由gitee托管的，gitee的仓库有5G的大小限制，考虑到之后图片太多可能会导致不够用，于是就想到了大量使用外链，这样不但可以节省容量，还可以提升博客的访问速度。本来是打算在gitee新建一个仓库专门用来做图床的，在图床搭建过程中，我发现gitee对大于1m的图片有限制，大于1m的图片必须得登录才能查看，没办法，只得放弃用gitee搭建图床的计划，于是我就想到了github，github对仓库的大小和单文件大小限制比较宽松，可是大陆访问极不稳定，然后在查找方法的时候发现了jsDelivr的免费CDN加速服务，于是就有了现在使用的GitHub+jsDelivr+PicGo搭建的稳定图床。<br></p>
-<h2>准备</h2><hr>
-
-<p>1.在github创建一个专门存放图片的仓库<br></p>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备<hr></h2><p>1.在github创建一个专门存放图片的仓库<br></p>
 <p><img src="https://cdn.jsdelivr.net/gh/MKJ-TMZ/imgUrl/img20200326095645765.png" alt="进入主页点击右上角创建仓库"></p>
 <center>进入主页点击右上角“+”-New repository创建仓库</center><br>
 
@@ -76,9 +74,7 @@
 2.下载并安装自己系统对应的PicGO版本用于图片的上传和链接的生成记录
 
 <p><a href="https://github.com/Molunerfinn/picgo/releases" target="_blank" rel="noopener">PicGO下载地址</a></p>
-<h2>生成Token</h2><hr>
-
-<p><img src="https://cdn.jsdelivr.net/gh/MKJ-TMZ/imgUrl/img/20200327123154.png" alt=""></p>
+<h2 id="生成Token"><a href="#生成Token" class="headerlink" title="生成Token"></a>生成Token<hr></h2><p><img src="https://cdn.jsdelivr.net/gh/MKJ-TMZ/imgUrl/img/20200327123154.png" alt=""></p>
 <center>进入主页右上角点击自己头像-Settings</center><br>
 
 <p><img src="https://cdn.jsdelivr.net/gh/MKJ-TMZ/imgUrl/img/20200327093602.png" alt=""></p>
@@ -99,9 +95,7 @@
 <p><img src="https://cdn.jsdelivr.net/gh/MKJ-TMZ/imgUrl/img/20200327095208.png" alt=""></p>
 <center>创建完成以后可以直接复制此token（注意这个token只会出现这一次，关闭这个界面以后就看不到了）</center>
 
-<h2>配置PicGo</h2><hr>
-
-<p>安装并启动PicGo<br></p>
+<h2 id="配置PicGo"><a href="#配置PicGo" class="headerlink" title="配置PicGo"></a>配置PicGo<hr></h2><p>安装并启动PicGo<br></p>
 <p><img src="https://cdn.jsdelivr.net/gh/MKJ-TMZ/imgUrl/img/20200327104654.png" alt=""></p>
 <center>选择 图床设置-GitHub图床</center><br>
 
@@ -110,9 +104,7 @@
 <center>GitHub设置</center><br>
 设置完成之后点击确定，并设为默认图床
 
-<h2>上传图片</h2><hr>
-
-<p>设定好之后点击上传区<br></p>
+<h2 id="上传图片"><a href="#上传图片" class="headerlink" title="上传图片"></a>上传图片<hr></h2><p>设定好之后点击上传区<br></p>
 <p><img src="https://cdn.jsdelivr.net/gh/MKJ-TMZ/imgUrl/img/20200327112400.png" alt=""></p>
 <p>可以选择剪贴板上传或选择文件上传，下面可以选择生成的链接格式，看情况选择，上传完成后会自动将生成的链接复制到剪贴板。这里使用的时候我发现一个问题，如果仓库有同名文件时就会上传失败，建议去设置开启时间戳重命名，可以避免出现这种情况<br></p>
 <p><img src="https://cdn.jsdelivr.net/gh/MKJ-TMZ/imgUrl/img/20200327113023.png" alt=""></p>
