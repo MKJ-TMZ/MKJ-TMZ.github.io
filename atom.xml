@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>MKJ</title>
+  
+  <subtitle>一个有点脱离时代的死宅</subtitle>
+  <link href="/blog/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2020-03-28T11:03:41.608Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>妹控集的博客</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>用Github搭建一个稳定快速的个人图床</title>
+    <link href="http://yoursite.com/2020/03/26/picBed/"/>
+    <id>http://yoursite.com/2020/03/26/picBed/</id>
+    <published>2020-03-26T11:35:11.000Z</published>
+    <updated>2020-03-28T11:03:41.608Z</updated>
+    
+    <content type="html"><![CDATA[<p>由于本人的博客最初是由gitee托管的，gitee的仓库有5G的大小限制，考虑到之后图片太多可能会导致不够用，于是就想到了大量使用外链，这样不但可以节省容量，还可以提升博客的访问速度。本来是打算在gitee新建一个仓库专门用来做图床的，在图床搭建过程中，我发现gitee对大于1m的图片有限制，大于1m的图片必须得登录才能查看，没办法，只得放弃用gitee搭建图床的计划，于是我就想到了github，github对仓库的大小和单文件大小限制比较宽松，可是大陆访问极不稳定，然后在查找方法的时候发现了jsDelivr的免费CDN加速服务，于是就有了现在使用的GitHub+jsDelivr+PicGo搭建的稳定图床。<br></p><h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备<hr></h2><p>1.在github创建一个专门存放图片的仓库<br></p><p><img src="https://cdn.jsdelivr.net/gh/MKJ-TMZ/imgUrl/img20200326095645765.png" alt="进入主页点击右上角创建仓库"></p><center>进入主页点击右上角“+”-New repository创建仓库</center><br><p><img src="https://cdn.jsdelivr.net/gh/MKJ-TMZ/imgUrl/img20200326100442924.png" alt="完成仓库的创建"></p><center>完成仓库的创建</center><br>2.下载并安装自己系统对应的PicGO版本用于图片的上传和链接的生成记录<p><a href="https://github.com/Molunerfinn/picgo/releases" target="_blank" rel="noopener">PicGO下载地址</a></p><h2 id="生成Token"><a href="#生成Token" class="headerlink" title="生成Token"></a>生成Token<hr></h2><p><img src="https://cdn.jsdelivr.net/gh/MKJ-TMZ/imgUrl/img/20200327123154.png" alt=""></p><center>进入主页右上角点击自己头像-Settings</center><br><p><img src="https://cdn.jsdelivr.net/gh/MKJ-TMZ/imgUrl/img/20200327093602.png" alt=""></p><center>选择Developer settings</center><br><p><img src="https://cdn.jsdelivr.net/gh/MKJ-TMZ/imgUrl/img/20200327093832.png" alt=""></p><center>选择Personal access tokens</center><br><p><img src="https://cdn.jsdelivr.net/gh/MKJ-TMZ/imgUrl/img/20200327094019.png" alt=""></p><center>点击Generate new token按钮，之后会要求输入你的github密码验证身份</center><br><p><img src="https://cdn.jsdelivr.net/gh/MKJ-TMZ/imgUrl/img/20200327094642.png" alt=""></p><center>一定要记得勾选repo</center><br><p><img src="https://cdn.jsdelivr.net/gh/MKJ-TMZ/imgUrl/img/20200327122955.png" alt=""></p><center>点击最底部的Generate token按钮完成创建</center><br><p><img src="https://cdn.jsdelivr.net/gh/MKJ-TMZ/imgUrl/img/20200327095208.png" alt=""></p><center>创建完成以后可以直接复制此token（注意这个token只会出现这一次，关闭这个界面以后就看不到了）</center><h2 id="配置PicGo"><a href="#配置PicGo" class="headerlink" title="配置PicGo"></a>配置PicGo<hr></h2><p>安装并启动PicGo<br></p><p><img src="https://cdn.jsdelivr.net/gh/MKJ-TMZ/imgUrl/img/20200327104654.png" alt=""></p><center>选择 图床设置-GitHub图床</center><br><p>设定仓库名：GitHub账户名/用于做图床的仓库名<br>假设我的GitHub账户名叫zhangsan，创建了一个用来做图床的仓库叫picBed，那么这里就填 <code>zhangsan/picBed</code><br>设定分支名：这里可直接填<code>master</code><br>设定Token：填刚刚生成的那串Token，直接复制过来就行<br>指定储存路径：填你想要的储存的路径，如果想存在仓库的img子路径就填 <code>img/</code> ，也可以不填，不填就储存在仓库的根目录<br>自定义域名：这里要填jsDelivr的域名来提升访问速度，填写格式是 <code>https://cdn.jsdelivr.net/gh/GitHub账户名/用于做图床的仓库名</code>，假设我的GitHub账户名叫zhangsan，用来做图床的仓库叫picBed，这里就填 <code>https://cdn.jsdelivr.net/gh/zhangsan/picBed</code></p><p><img src="https://cdn.jsdelivr.net/gh/MKJ-TMZ/imgUrl/img/20200327104938.png" alt=""></p><center>GitHub设置</center><br>设置完成之后点击确定，并设为默认图床<h2 id="上传图片"><a href="#上传图片" class="headerlink" title="上传图片"></a>上传图片<hr></h2><p>设定好之后点击上传区<br></p><p><img src="https://cdn.jsdelivr.net/gh/MKJ-TMZ/imgUrl/img/20200327112400.png" alt=""></p><p>可以选择剪贴板上传或选择文件上传，下面可以选择生成的链接格式，看情况选择，上传完成后会自动将生成的链接复制到剪贴板。这里使用的时候我发现一个问题，如果仓库有同名文件时就会上传失败，建议去设置开启时间戳重命名，可以避免出现这种情况<br></p><p><img src="https://cdn.jsdelivr.net/gh/MKJ-TMZ/imgUrl/img/20200327113023.png" alt=""></p><center>开启时间戳重命名</center><br><p>点击相册可以看到自己上传过的图片，可以复制图片链接，修改图片链接，还有删除图片，注意，这里的删除图片只是删除图片的记录，并不是将图片从仓库中删除，想要删除仓库中的图片，需要自己手动去仓库操作<br></p><p><img src="https://cdn.jsdelivr.net/gh/MKJ-TMZ/imgUrl/img/20200327121440.png" alt=""><br><br><br></p><p>封面图是<a href="https://www.pixiv.net/artworks/80316530" target="_blank" rel="noopener">Rosuuri(pixiv)</a></p><p><img src="https://cdn.jsdelivr.net/gh/MKJ-TMZ/imgUrl/img80316530_p0.jpg" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;由于本人的博客最初是由gitee托管的，gitee的仓库有5G的大小限制，考虑到之后图片太多可能会导致不够用，于是就想到了大量使用外链，这样不但可以节省容量，还可以提升博客的访问速度。本来是打算在gitee新建一个仓库专门用来做图床的，在图床搭建过程中，我发现gitee对大
+      
+    
+    </summary>
+    
+    
+      <category term="教程" scheme="http://yoursite.com/categories/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="建站" scheme="http://yoursite.com/categories/%E6%95%99%E7%A8%8B/%E5%BB%BA%E7%AB%99/"/>
+    
+    
+      <category term="图床" scheme="http://yoursite.com/tags/%E5%9B%BE%E5%BA%8A/"/>
+    
+      <category term="那些年踩过的坑" scheme="http://yoursite.com/tags/%E9%82%A3%E4%BA%9B%E5%B9%B4%E8%B8%A9%E8%BF%87%E7%9A%84%E5%9D%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MKJ的第一篇博客</title>
+    <link href="http://yoursite.com/2020/03/25/firstBlod/"/>
+    <id>http://yoursite.com/2020/03/25/firstBlod/</id>
+    <published>2020-03-25T13:18:59.000Z</published>
+    <updated>2020-03-28T11:03:30.258Z</updated>
+    
+    <content type="html"><![CDATA[<p>折腾了几天踩了不少坑，终于搭建了自己的第一个博客（年轻人的第一个博客？）。<br><br>搭建成功显示Hello World的时候心情还是很激动的，哈哈刻在DNA里的Hello World，上一次有这种心情还是大一第一节JAVA课成功编译出人生中的第一个Hello World的时候，至今还记得那时候看着黑白分明的cmd窗口的那种<del>愉悦</del>的心情。现在想想还真是简陋啊，居然用记事本敲JAVA代码cmd输出，真是一点都不优雅。<br><br>开始搭建博客的契机是我无意中看到一个博客友链分享的帖子（也有可能根本原因是肺炎期间闲的？），然后点进去看了他们的博客，真是羡慕的要死，然后我就掏出的万能的百度，开始找建博客的方法。折腾了好几天，终于有了点小成果，成就感还是满满的，不过俗话说重点在折腾，<del>博客的更新就随缘吧，咕咕咕，</del>不过就算没人看，应该还是会保持一定程度的更新<del>自娱自乐</del>，准备用来当自己的记事本，用来记录自己各种折腾期间踩的一些坑。<br><br>封面图是<a href="https://www.pixiv.net/artworks/79640343" target="_blank" rel="noopener">mocha＠３日目南-ナ31a</a></p><p><img src="https://cdn.jsdelivr.net/gh/MKJ-TMZ/imgUrl/img79640343_p0.jpg"><br></p><p>博客的头图是我最喜欢的画师<a href="https://www.pixiv.net/artworks/74451898" target="_blank" rel="noopener">千夜QYS3</a></p><img src="https://cdn.jsdelivr.net/gh/MKJ-TMZ/imgUrl/img/20200328132706.jpg"/>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;折腾了几天踩了不少坑，终于搭建了自己的第一个博客（年轻人的第一个博客？）。&lt;br&gt;&lt;br&gt;搭建成功显示Hello World的时候心情还是很激动的，哈哈刻在DNA里的Hello World，上一次有这种心情还是大一第一节JAVA课成功编译出人生中的第一个Hello Worl
+      
+    
+    </summary>
+    
+    
+      <category term="小记录" scheme="http://yoursite.com/categories/%E5%B0%8F%E8%AE%B0%E5%BD%95/"/>
+    
+    
+      <category term="第一篇博客" scheme="http://yoursite.com/tags/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
+  
+</feed>
