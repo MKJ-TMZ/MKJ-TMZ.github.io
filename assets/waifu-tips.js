@@ -91,8 +91,12 @@ String.prototype.render = function(context) {
     });
 };
 
+let devtools = () => {};
+console.log("%c", devtools);
 var re = /x/;
 console.log(re);
+
+
 
 function empty(obj) {return typeof obj=="undefined"||obj==null||obj==""?true:false}
 function getRandText(text) {return Array.isArray(text) ? text[Math.floor(Math.random() * text.length + 1)-1] : text}
@@ -243,10 +247,13 @@ function loadTipsMessage(result) {
     });
     
     if (live2d_settings.showF12OpenMsg) {
-        re.toString = function() {
-            showMessage(getRandText(result.waifu.console_open_msg), 5000, true);
-            return '';
-        };
+		devtools.toString = () => {
+			showMessage("哈哈，你打开了控制台，是想要看看我的小秘密吗？", 6000, 9);
+		};
+		re.toString = function() {
+			showMessage(getRandText(result.waifu.console_open_msg), 5000, true);
+		    return '';
+		}
     }
     
     if (live2d_settings.showCopyMessage) {
